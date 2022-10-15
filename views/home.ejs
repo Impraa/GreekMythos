@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <header>
+      <%- include('partials/nav') %>
+      <div class="headerImageContainer">
+        <h2 class="headerImageTitle">
+          Welcome to Greek mythos where you can learn about mythological
+          characters!
+        </h2>
+      </div>
+    </header>
+
+    <main class="container mainHome">
+      <% for(let gods of GreekMyth.allCollection){%>
+      <div class="godCards">
+        <span class="godNameHomepage"><%= gods.name%></span>
+        <form action="/home/overview">
+          <input type="hidden" name="name" value="<%= gods.name %>" />
+          <button class="learnMoreButton">Learn more</button>
+        </form>
+      </div>
+      <% } %>
+    </main>
+  </body>
+</html>

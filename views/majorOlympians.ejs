@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+
+  <body>
+    <header>
+      <%- include('partials/nav') %>
+      <div class="headerImageContainerMO">
+        <h2 class="headerImageTitle">
+          Here you can research your favourite gods!
+        </h2>
+      </div>
+    </header>
+
+    <main class="container">
+      <% for(let i=0;i<GreekMyth.allCollection.length;i++){
+      if(Object.values(GreekMyth.allCollection[i]).includes('major olympians'))
+      {%>
+      <div class="godCards">
+        <span class="godNameHomepage"
+          ><%= GreekMyth.allCollection[i].name%></span
+        >
+        <form action="/home/overview">
+          <input
+            type="hidden"
+            name="name"
+            value="<%= GreekMyth.allCollection[i].name %>"
+          />
+          <button class="learnMoreButton">Learn more</button>
+        </form>
+      </div>
+      <% } }%>
+    </main>
+  </body>
+</html>

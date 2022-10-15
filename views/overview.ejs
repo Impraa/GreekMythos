@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <%-include('partials/nav') %>
+
+    <main class="container mainOverview">
+      <h2 class="godOverviewTitle"><%= god.name %></h2>
+      <h2 class="godOverviewTitleSubtitle"><% if(god.greekName){ %> <%= god.greekName %> <% } %></h3>
+      <p class="text"><% if(god.immortal){ %> <%= god.immortal %> <% } %></p>
+      <section>
+        <p class="text"><% if(god.description){ %> <%= god.description %> <% } %></p>
+        <% if(god.images.regular){ %> <img class="godOverviewImage" src="<%= god.images.regular %> " alt=""> <% } %>
+      </section>
+    </main>
+  </body>
+</html>
